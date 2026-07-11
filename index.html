@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0d1117">
+    <meta name="description" content="Mobile-friendly flashcards for Microsoft Exam GH-300: GitHub Copilot.">
+    <title>GH-300 Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Microsoft Exam GH-300</p>
+          <h1>Copilot flashcards</h1>
+        </div>
+        <button id="shuffle" class="icon-button" type="button" aria-label="Shuffle cards" title="Shuffle cards">
+          <span aria-hidden="true">↝</span>
+        </button>
+      </header>
+
+      <section class="study-controls" aria-label="Study controls">
+        <label for="category">Study topic</label>
+        <select id="category">
+          <option value="all">All exam topics</option>
+        </select>
+        <div class="progress-copy">
+          <span id="position">Card 1 of 1</span>
+          <span id="seen">0 studied</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress" class="progress-bar"></div>
+        </div>
+      </section>
+
+      <section class="deck" aria-label="Flashcard deck">
+        <div id="card" class="card" role="button" tabindex="0" aria-label="Flashcard. Press Space to reveal answer.">
+          <div class="card-inner">
+            <article class="card-face card-front">
+              <div class="card-topline">
+                <span id="weight" class="weight"></span>
+                <span class="side-label">Question</span>
+              </div>
+              <p id="topic-front" class="topic"></p>
+              <h2 id="question"></h2>
+              <p class="flip-hint"><span aria-hidden="true">↻</span> Tap to reveal</p>
+            </article>
+
+            <article class="card-face card-back">
+              <div class="card-topline">
+                <span id="topic-back" class="topic"></span>
+                <span class="side-label">Answer</span>
+              </div>
+              <div id="answer" class="answer"></div>
+              <a id="source" class="source" href="#" target="_blank" rel="noopener noreferrer">
+                Read on Microsoft Learn <span aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </div>
+        </div>
+        <p class="swipe-hint">Swipe or use arrow keys to move between cards</p>
+      </section>
+
+      <nav class="navigation" aria-label="Flashcard navigation">
+        <button id="previous" type="button"><span aria-hidden="true">←</span> Previous</button>
+        <button id="next" class="primary" type="button">Next <span aria-hidden="true">→</span></button>
+      </nav>
+
+      <footer>
+        <a href="https://learn.microsoft.com/en-gb/credentials/certifications/resources/study-guides/gh-300" target="_blank" rel="noopener noreferrer">
+          View the official GH-300 study guide
+        </a>
+        <p>Community study aid · Verify changing product details before your exam.</p>
+      </footer>
+    </main>
+    <div id="announcement" class="sr-only" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "gh-300-flashcards",
+  "version": "1.0.0",
+  "description": "Mobile-first GH-300 exam flashcards grounded in Microsoft Learn.",
+  "private": true,
+  "scripts": {
+    "test": "node --check app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guygregory/GH-300-flashcards.git"
+  },
+  "keywords": [
+    "gh-300",
+    "github-copilot",
+    "flashcards"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guygregory/GH-300-flashcards/issues"
+  },
+  "homepage": "https://guygregory.github.io/GH-300-flashcards/"
+}
