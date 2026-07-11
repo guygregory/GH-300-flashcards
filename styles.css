@@ -262,10 +262,6 @@ h2 {
   margin-top: 0.58rem;
 }
 
-.answer strong {
-  color: var(--teal);
-}
-
 .source {
   align-self: flex-start;
   color: var(--accent);

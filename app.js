@@ -18,7 +18,7 @@ const cards = [
     category: "Responsible AI",
     weight: "15–20%",
     question: "What does responsible AI mean?",
-    answer: ["Develop, assess, and deploy AI in a <strong>safe, trustworthy, and ethical</strong> way.", "Keep people and their goals central while respecting fairness, reliability, privacy, and transparency."],
+    answer: ["Develop, assess, and deploy AI in a safe, trustworthy, and ethical way.", "Keep people and their goals central while respecting fairness, reliability, privacy, and transparency."],
     source: SOURCES.responsible
   },
   {
@@ -26,7 +26,7 @@ const cards = [
     category: "Responsible AI",
     weight: "15–20%",
     question: "What are Microsoft and GitHub’s six responsible AI principles?",
-    answer: ["<strong>Fairness</strong>", "<strong>Reliability and safety</strong>", "<strong>Privacy and security</strong>", "<strong>Inclusiveness</strong>", "<strong>Transparency</strong>", "<strong>Accountability</strong>"],
+    answer: ["Fairness", "Reliability and safety", "Privacy and security", "Inclusiveness", "Transparency", "Accountability"],
     source: SOURCES.principles
   },
   {
@@ -50,7 +50,7 @@ const cards = [
     category: "Responsible AI",
     weight: "15–20%",
     question: "Who is accountable for AI-generated output?",
-    answer: ["<strong>People remain accountable.</strong>", "Creators and users should validate output, monitor performance, disclose limitations, and mitigate risks rather than treating Copilot as an authority."],
+    answer: ["People remain accountable.", "Creators and users should validate output, monitor performance, disclose limitations, and mitigate risks rather than treating Copilot as an authority."],
     source: SOURCES.principles
   },
   {
@@ -66,7 +66,7 @@ const cards = [
     category: "Copilot features",
     weight: "25–30%",
     question: "Inline suggestions or Chat: when should you use each?",
-    answer: ["Use <strong>inline suggestions</strong> for completions in the current editing flow.", "Use <strong>Chat</strong> for explanations, broader questions, generation, debugging, and iterative requests."],
+    answer: ["Use inline suggestions for completions in the current editing flow.", "Use Chat for explanations, broader questions, generation, debugging, and iterative requests."],
     source: SOURCES.intro
   },
   {
@@ -82,7 +82,7 @@ const cards = [
     category: "Copilot features",
     weight: "25–30%",
     question: "What role does MCP play in Copilot workflows?",
-    answer: ["The <strong>Model Context Protocol</strong> connects Copilot to external tools and data sources.", "It expands the context and actions available to an agent beyond the editor and repository."],
+    answer: ["The Model Context Protocol connects Copilot to external tools and data sources.", "It expands the context and actions available to an agent beyond the editor and repository."],
     source: STUDY_GUIDE
   },
   {
@@ -122,7 +122,7 @@ const cards = [
     category: "Copilot features",
     weight: "25–30%",
     question: "What should you remember about Spaces, Spark, and PR summaries?",
-    answer: ["<strong>Spaces</strong> organize context for focused collaboration.", "<strong>Spark</strong> supports creating applications from natural language.", "PR summaries help reviewers understand proposed changes faster."],
+    answer: ["Spaces organize context for focused collaboration.", "Spark supports creating applications from natural language.", "PR summaries help reviewers understand proposed changes faster."],
     source: STUDY_GUIDE
   },
   {
@@ -138,7 +138,7 @@ const cards = [
     category: "Data & architecture",
     weight: "10–15%",
     question: "What is Fill-in-the-Middle (FIM) preprocessing?",
-    answer: ["FIM gives the model code from <strong>both before and after</strong> the cursor.", "This broader context helps Copilot generate a completion that fits the surrounding code."],
+    answer: ["FIM gives the model code from both before and after the cursor.", "This broader context helps Copilot generate a completion that fits the surrounding code."],
     source: SOURCES.flow
   },
   {
@@ -178,7 +178,7 @@ const cards = [
     category: "Prompt engineering",
     weight: "10–15%",
     question: "What are the 4 S’s of effective prompting?",
-    answer: ["<strong>Single:</strong> one well-defined task.", "<strong>Specific:</strong> explicit, detailed instructions.", "<strong>Short:</strong> concise and focused.", "<strong>Surround:</strong> provide useful nearby context."],
+    answer: ["Single: one well-defined task.", "Specific: explicit, detailed instructions.", "Short: concise and focused.", "Surround: provide useful nearby context."],
     source: SOURCES.prompts
   },
   {
@@ -194,7 +194,7 @@ const cards = [
     category: "Prompt engineering",
     weight: "10–15%",
     question: "Zero-shot, one-shot, and few-shot: what is the difference?",
-    answer: ["<strong>Zero-shot:</strong> no example.", "<strong>One-shot:</strong> one example establishes a pattern.", "<strong>Few-shot:</strong> several examples clarify conventions, scenarios, and edge cases."],
+    answer: ["Zero-shot: no example.", "One-shot: one example establishes a pattern.", "Few-shot: several examples clarify conventions, scenarios, and edge cases."],
     source: SOURCES.prompts
   },
   {
@@ -346,8 +346,7 @@ function populateCategories() {
 }
 
 function setAnswerItemText(container, content) {
-  const parsedContent = new DOMParser().parseFromString(content, "text/html");
-  container.textContent = parsedContent.body.textContent;
+  container.textContent = content;
 }
 
 function renderCard({ announce = false } = {}) {
