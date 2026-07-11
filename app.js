@@ -346,7 +346,8 @@ function populateCategories() {
 }
 
 function setAnswerItemText(container, content) {
-  container.textContent = content.replaceAll("<strong>", "").replaceAll("</strong>", "");
+  const parsedContent = new DOMParser().parseFromString(content, "text/html");
+  container.textContent = parsedContent.body.textContent;
 }
 
 function renderCard({ announce = false } = {}) {
@@ -401,9 +402,9 @@ function filterDeck() {
 }
 
 function shuffleDeck() {
-  for (let currentPosition = deck.length - 1; currentPosition > 0; currentPosition -= 1) {
-    const randomIndex = Math.floor(Math.random() * (currentPosition + 1));
-    [deck[currentPosition], deck[randomIndex]] = [deck[randomIndex], deck[currentPosition]];
+  for (let index = deck.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [deck[index], deck[randomIndex]] = [deck[randomIndex], deck[index]];
   }
   currentIndex = 0;
   renderCard();
