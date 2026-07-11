@@ -345,6 +345,23 @@ function populateCategories() {
   });
 }
 
+function appendAnswerItem(container, content) {
+  const strongPattern = /<strong>(.*?)<\/strong>/g;
+  let cursor = 0;
+  let match = strongPattern.exec(content);
+
+  while (match) {
+    container.append(document.createTextNode(content.slice(cursor, match.index)));
+    const strong = document.createElement("strong");
+    strong.textContent = match[1];
+    container.append(strong);
+    cursor = strongPattern.lastIndex;
+    match = strongPattern.exec(content);
+  }
+
+  container.append(document.createTextNode(content.slice(cursor)));
+}
+
 function renderCard({ announce = false } = {}) {
   const card = deck[currentIndex];
   elements.card.classList.remove("flipped");
@@ -357,7 +374,7 @@ function renderCard({ announce = false } = {}) {
   const list = document.createElement("ul");
   card.answer.forEach((item) => {
     const entry = document.createElement("li");
-    entry.innerHTML = item;
+    appendAnswerItem(entry, item);
     list.append(entry);
   });
   elements.answer.append(list);
@@ -368,7 +385,7 @@ function renderCard({ announce = false } = {}) {
   elements.seen.textContent = `${studiedInDeck} studied`;
   elements.progress.style.width = `${((currentIndex + 1) / deck.length) * 100}%`;
   if (announce) {
-    elements.announcement.textContent = `${card.category}. Card ${currentIndex + 1} of ${deck.length}. ${card.question}`;
+    elements.announcement.textContent = `Category: ${card.category}. Position: card ${currentIndex + 1} of ${deck.length}. Question: ${card.question}`;
   }
 }
 

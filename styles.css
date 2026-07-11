@@ -40,9 +40,9 @@ select {
   -webkit-tap-highlight-color: transparent;
 }
 
-button,
-select,
-.card {
+button:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+.card:focus:not(:focus-visible) {
   outline: none;
 }
 
