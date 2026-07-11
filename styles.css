@@ -157,6 +157,7 @@ select {
 
 .card {
   position: relative;
+  height: clamp(25rem, 62vh, 31rem);
   height: clamp(25rem, 62dvh, 31rem);
   cursor: pointer;
   touch-action: pan-y;

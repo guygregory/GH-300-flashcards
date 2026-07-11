@@ -345,7 +345,7 @@ function populateCategories() {
   });
 }
 
-function appendAnswerItem(container, content) {
+function setAnswerItemText(container, content) {
   container.textContent = content.replaceAll("<strong>", "").replaceAll("</strong>", "");
 }
 
@@ -361,7 +361,7 @@ function renderCard({ announce = false } = {}) {
   const list = document.createElement("ul");
   card.answer.forEach((item) => {
     const entry = document.createElement("li");
-    appendAnswerItem(entry, item);
+    setAnswerItemText(entry, item);
     list.append(entry);
   });
   elements.answer.append(list);
@@ -401,9 +401,9 @@ function filterDeck() {
 }
 
 function shuffleDeck() {
-  for (let index = deck.length - 1; index > 0; index -= 1) {
-    const randomIndex = Math.floor(Math.random() * (index + 1));
-    [deck[index], deck[randomIndex]] = [deck[randomIndex], deck[index]];
+  for (let currentPosition = deck.length - 1; currentPosition > 0; currentPosition -= 1) {
+    const randomIndex = Math.floor(Math.random() * (currentPosition + 1));
+    [deck[currentPosition], deck[randomIndex]] = [deck[randomIndex], deck[currentPosition]];
   }
   currentIndex = 0;
   renderCard();
