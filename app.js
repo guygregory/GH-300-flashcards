@@ -346,20 +346,7 @@ function populateCategories() {
 }
 
 function appendAnswerItem(container, content) {
-  const strongPattern = /<strong>(.*?)<\/strong>/g;
-  let cursor = 0;
-  let match = strongPattern.exec(content);
-
-  while (match) {
-    container.append(document.createTextNode(content.slice(cursor, match.index)));
-    const strong = document.createElement("strong");
-    strong.textContent = match[1];
-    container.append(strong);
-    cursor = strongPattern.lastIndex;
-    match = strongPattern.exec(content);
-  }
-
-  container.append(document.createTextNode(content.slice(cursor)));
+  container.textContent = content.replaceAll("<strong>", "").replaceAll("</strong>", "");
 }
 
 function renderCard({ announce = false } = {}) {
@@ -385,7 +372,7 @@ function renderCard({ announce = false } = {}) {
   elements.seen.textContent = `${studiedInDeck} studied`;
   elements.progress.style.width = `${((currentIndex + 1) / deck.length) * 100}%`;
   if (announce) {
-    elements.announcement.textContent = `Category: ${card.category}. Position: card ${currentIndex + 1} of ${deck.length}. Question: ${card.question}`;
+    elements.announcement.textContent = `Showing card ${currentIndex + 1} of ${deck.length} in ${card.category}`;
   }
 }
 
